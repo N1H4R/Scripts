@@ -22,22 +22,24 @@ sudo apt-get update
 
 while true
 do
-	echo "1) Install Java JDK 17"
-	echo "2) Install OpenJDK 17"
-	echo "3) Install Jenkins"
-	echo "4) APT Update"
+	echo "1) Add Repository, Update"
+	echo "2) Install Java JDK 17"
+	echo "3) Install OpenJDK 17"
+	echo "4) Install Jenkins"
 	echo "5) Check Jenkins status"
 	echo "6) Check Java & Jenkins version"
-	reach -p "Enter your choice: " choice
+	echo "7) Exit"
+	read -p "Enter your choice: " choice
 
 	case $choice in 
-		1) sudo apt install java-11 -y
+		1) sudo add-apt-repository ppa:linuxuprising/java
+			 sudo apt update
 			;;
-		2) sudo apt install openjdk-17-jdk -y
+		2) sudo apt install oracle-java17-installer -y
 			;;
-		3) sudo install_jenkins
+		3) sudo apt install openjdk-17-jdk -y
 			;;
-		4) sudo apt-get update
+		4) sudo install_jenkins
 			;;
 		5) systemctl status jenkins
 			;;
