@@ -13,6 +13,10 @@ install_jenkins() {
   sudo apt-get install jenkins -y
 }
 
+install_openjdk() {
+  sudo apt install openjdk-17-jdk -y
+}
+
 while true
 do
   echo "1) Add Repository, Ubuntu older than 22.04"
@@ -30,7 +34,7 @@ do
       sudo apt-get update
       ;;
     2)
-      sudo apt install openjdk-17-jdk -y
+      install_openjdk
       ;;
     3)
       install_jenkins
