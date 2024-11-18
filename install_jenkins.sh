@@ -15,38 +15,34 @@ install_jenkins() {
 
 while true
 do
-  echo "1) Add Repository, Update"
-  echo "2) Install Java JDK 17"
-  echo "3) Install OpenJDK 17"
-  echo "4) Install Jenkins"
-  echo "5) Check Jenkins status"
-  echo "6) Check Java & Jenkins version"
-  echo "7) Exit"
+  echo "1) Add Repository, Ubuntu older than 22.04"
+  echo "2) Install OpenJDK 17"
+  echo "3) Install Jenkins"
+  echo "4) Check Jenkins status"
+  echo "5) Check Java & Jenkins version"
+  echo "6) Exit"
   read -p "Enter your choice: " choice
 
   case $choice in
     1)
       sudo apt-get install software-properties-common -y
-      sudo add-apt-repository ppa:linuxuprising/java -y
+      sudo add-apt-repository ppa:openjdk-r/ppa -y
       sudo apt-get update
       ;;
     2)
-      echo "Oracle Java Installer is not available in public PPA."
-      ;;
-    3)
       sudo apt install openjdk-17-jdk -y
       ;;
-    4)
+    3)
       install_jenkins
       ;;
-    5)
+    4)
       systemctl status jenkins
       ;;
-    6)
+    5)
       java -version
       jenkins -v
       ;;
-    7)
+    6)
       break
       ;;
     *)
