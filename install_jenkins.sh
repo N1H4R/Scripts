@@ -43,7 +43,7 @@ do
       systemctl status jenkins
       ;;
     5)
-      java -version
+      java --version
       jenkins -v
       ;;
     6)
